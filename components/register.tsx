@@ -89,10 +89,12 @@ const RegistrationForm: React.FC = () => {
         });
         if (!res.ok) throw new Error("Failed to fetch countries");
         const data = await res.json();
-        setCountries(data);
+        // Ensure data is always an array
+        setCountries(Array.isArray(data) ? data : data?.data || data?.results || []);
       } catch (error) {
         console.error("Error fetching countries:", error);
         toast.error("Failed to load countries");
+        setCountries([]); // Set empty array on error
       }
     }
     fetchCountries();
@@ -109,10 +111,12 @@ const RegistrationForm: React.FC = () => {
         });
         if (!res.ok) throw new Error("Failed to fetch roles");
         const data = await res.json();
-        setRoles(data);
+        // Ensure data is always an array
+        setRoles(Array.isArray(data) ? data : data?.data || data?.results || []);
       } catch (error) {
         console.error("Error fetching roles:", error);
         toast.error("Failed to load roles");
+        setRoles([]); // Set empty array on error
       }
     }
     fetchRoles();
@@ -129,10 +133,12 @@ const RegistrationForm: React.FC = () => {
         });
         if (!res.ok) throw new Error("Failed to fetch subjects");
         const data = await res.json();
-        setSubjects(data);
+        // Ensure data is always an array
+        setSubjects(Array.isArray(data) ? data : data?.data || data?.results || []);
       } catch (error) {
         console.error("Error fetching subjects:", error);
         toast.error("Failed to load subjects");
+        setSubjects([]); // Set empty array on error
       }
     }
     fetchSubjects();
@@ -287,11 +293,12 @@ const RegistrationForm: React.FC = () => {
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    {roles.map((role) => (
-                      <SelectItem key={role.id} value={role?.id?.toString()}>
-                        {role.name}
-                      </SelectItem>
-                    ))}
+                    {Array.isArray(roles) &&
+                      roles.map((role) => (
+                        <SelectItem key={role.id} value={role?.id?.toString()}>
+                          {role.name}
+                        </SelectItem>
+                      ))}
                   </SelectContent>
                 </Select>
                 <FormMessage />
@@ -314,14 +321,15 @@ const RegistrationForm: React.FC = () => {
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    {subjects.map((subject) => (
-                      <SelectItem
-                        key={subject.id}
-                        value={subject?.id?.toString()}
-                      >
-                        {subject.name}
-                      </SelectItem>
-                    ))}
+                    {Array.isArray(subjects) &&
+                      subjects.map((subject) => (
+                        <SelectItem
+                          key={subject.id}
+                          value={subject?.id?.toString()}
+                        >
+                          {subject.name}
+                        </SelectItem>
+                      ))}
                   </SelectContent>
                 </Select>
                 <FormMessage />
