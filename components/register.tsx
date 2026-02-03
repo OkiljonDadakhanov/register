@@ -187,18 +187,41 @@ const RegistrationForm: React.FC = () => {
     { id: "2", value: "2", label: "2 students" },
     { id: "3", value: "3", label: "3 students" },
     { id: "4", value: "4", label: "4 students" },
+    { id: "5", value: "5", label: "5 students" },
+    { id: "6", value: "6", label: "6 students" },
+    { id: "7", value: "7", label: "7 students" },
+    { id: "8", value: "8", label: "8 students" },
+    { id: "9", value: "9", label: "9 students" },
+    { id: "10", value: "10", label: "10 students" },
+    { id: "11", value: "11", label: "11 students" },
+    { id: "12", value: "12", label: "12 students" },
   ];
 
   const studentCountsInfo = [
     { id: "0", value: "0", label: "0 student" },
     { id: "1", value: "1", label: "1 student" },
     { id: "2", value: "2", label: "2 students" },
+    { id: "3", value: "3", label: "3 students" },
+    { id: "4", value: "4", label: "4 students" },
+    { id: "5", value: "5", label: "5 students" },
+    { id: "6", value: "6", label: "6 students" },
   ];
 
-  const teamLeaders = [
+  const teamLeadersMaths = [
     { id: "0", value: "0", label: "0 team leader" },
     { id: "1", value: "1", label: "1 team leader" },
     { id: "2", value: "2", label: "2 team leaders" },
+    { id: "3", value: "3", label: "3 team leaders" },
+    { id: "4", value: "4", label: "4 team leaders" },
+    { id: "5", value: "5", label: "5 team leaders" },
+    { id: "6", value: "6", label: "6 team leaders" },
+  ];
+
+  const teamLeadersInfo = [
+    { id: "0", value: "0", label: "0 team leader" },
+    { id: "1", value: "1", label: "1 team leader" },
+    { id: "2", value: "2", label: "2 team leaders" },
+    { id: "3", value: "3", label: "3 team leaders" },
   ];
 
   return (
@@ -408,7 +431,7 @@ const RegistrationForm: React.FC = () => {
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    {teamLeaders.map((option) => (
+                    {teamLeadersMaths.map((option) => (
                       <SelectItem key={option.id} value={option.value}>
                         {option.label}
                       </SelectItem>
@@ -437,7 +460,7 @@ const RegistrationForm: React.FC = () => {
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    {teamLeaders.map((option) => (
+                    {teamLeadersInfo.map((option) => (
                       <SelectItem key={option.id} value={option.value}>
                         {option.label}
                       </SelectItem>
