@@ -1,9 +1,0 @@
-{
-  "redirects": [
-    {
-      "source": "/(.*)",
-      "destination": "https://pre-registration-khimio.olympcenter.uz/$1",
-      "permanent": true
-    }
-  ]
-}
